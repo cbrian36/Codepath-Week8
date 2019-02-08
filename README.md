@@ -16,23 +16,29 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 
 ## Blue
 
-Vulnerability #1: __________________
+Vulnerability #1: SQL Injection
+  - [ ] GIF Walkthrough: ![](https://i.imgur.com/PlGJagH.gif)
 
-Vulnerability #2: __________________
+Vulnerability #2: Session Hijacking/Fixation
+  - [ ] GIF Walkthrough: ![](https://i.imgur.com/MJgbz9K.gif)
 
 
 ## Green
 
-Vulnerability #1: __________________
+Vulnerability #1: Username Enumeration
+  - [ ] GIF Walkthrough: ![](https://i.imgur.com/BqJcyXR.gif)
 
-Vulnerability #2: __________________
+Vulnerability #2: Cross-Site Scripting
+  - [ ] GIF Walkthrough: ![](https://i.imgur.com/esx4HyK.gif)
 
 
 ## Red
 
-Vulnerability #1: __________________
+Vulnerability #1: Insecure Direct Object Reference
+  - [ ] GIF Walkthrough: ![](https://i.imgur.com/dOBXRlO.gif)
 
-Vulnerability #2: __________________
+Vulnerability #2: Cross-Site Request Forgery
+  - [ ] GIF Walkthrough: ![]()
 
 
 ## Notes
