@@ -41,6 +41,12 @@ Vulnerability #2: Cross-Site Request Forgery
   - [ ] GIF Walkthrough: ![]()
 
 
+## Bonus Objective
+
+Vulnerability: Build on cross-site scripting to dedirect the user to a new URL
+  - [ ] GIF Walkthrough: ![](https://i.imgur.com/NMNsFw7.gif)
+
+
 ## Notes
 
 Describe any challenges encountered while doing the work
