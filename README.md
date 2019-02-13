@@ -17,6 +17,11 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 ## Blue
 
 Vulnerability #1: SQL Injection
+* View a any salesperson's profile
+* The end of the url should be "id=someInteger"
+* Replace the integer with ```' OR SLEEP(10)=0--'``` and press enter
+* The webpage should reload after 10 seconds
+
   - [ ] GIF Walkthrough: ![](https://i.imgur.com/PlGJagH.gif)
 
 Vulnerability #2: Session Hijacking/Fixation
