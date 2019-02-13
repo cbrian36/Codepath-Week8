@@ -38,7 +38,7 @@ Vulnerability #1: Insecure Direct Object Reference
   - [ ] GIF Walkthrough: ![](https://i.imgur.com/dOBXRlO.gif)
 
 Vulnerability #2: Cross-Site Request Forgery
-  - [ ] GIF Walkthrough: ![]()
+  - [ ] GIF Walkthrough: ![](https://i.imgur.com/6sB7IlD.gif)
 
 
 ## Bonus Objective
